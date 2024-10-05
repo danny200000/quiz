@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--favicon-->
+    <link rel="icon" href="favicon-32x32.png" type="image/png" />
+    <!--plugins-->
+    <link href="simplebar.css" rel="stylesheet" />
+    <link href="perfect-scrollbar.css" rel="stylesheet" />
+    <link href="metisMenu.min.css" rel="stylesheet" />
+    <!-- loader-->
+    <link href="pace.min.css" rel="stylesheet" />
+    <script src="pace.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap-extended.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="app.css" rel="stylesheet">
+    <link href="icons.css" rel="stylesheet">
+    <!-- Theme Style CSS -->
+    <link rel="stylesheet" href="dark-theme.css" />
+    <link rel="stylesheet" href="semi-dark.css" />
+    <link rel="stylesheet" href="header-colors.css" />
+    <title>INVESTOR</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+
+<body>
+    <!--wrapper-->
+    <div class="wrapper">
+        <div class="page-wrapper">
+            <div class="page-content">
+                <div class="card">
+                    <div class="card-body p-4">
+                        <h5 class="mb-4">Withdraw</h5>
+
+                        <!-- Withdrawal Form -->
+                        <form id="PaymentForm">
+                            <div class="row mb-3">
+                                <label for="input49" class="col-sm-3 col-form-label">Account number</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class='bx bx-user'></i></span>
+                                        <input type="text" name="account_number" class="form-control" id="input49" placeholder="Your bank account number" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="input50" class="col-sm-3 col-form-label">Account name</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class='bx bx-phone'></i></span>
+                                        <input type="text" name="account_name" class="form-control" id="input50" placeholder="Correct Account bank" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="input51" class="col-sm-3 col-form-label">Bank Name</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class='bx bx-envelope'></i></span>
+                                        <input type="text" name="bank_name" class="form-control" id="input51" placeholder="Correct bank Name" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="input52" class="col-sm-3 col-form-label">Amount</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group">
+                                        <span class="input-group-text"><i class='bx bx-wallet-alt'></i></span>
+                                        <input type="number" name="amount" class="form-control" id="amount" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label class="col-sm-3 col-form-label"></label>
+                                <div class="col-sm-9">
+                                    <button type="submit" class="btn btn-primary px-4">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="bootstrap.bundle.min.js"></script>
+    <!--plugins-->
+    <script src="jquery.min.js"></script>
+    <script src="simplebar.min.js"></script>
+    <script src="metisMenu.min.js"></script>
+    <script src="perfect-scrollbar.js"></script>
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        // Check if a withdrawal was just made
+        const withdrawAmount = sessionStorage.getItem('withdrawAmount');
+    
+        if (withdrawAmount) {
+            Swal.fire({
+                title: 'Withdrawal Successful',
+                text: "You have withdrawn ₦" + withdrawAmount,
+                icon: 'success',
+                background: '#2d2d2d',
+                color: '#ffffff',
+                confirmButtonText: 'OK',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                }
+            }).then(() => {
+                // Clear the stored withdrawal amount
+                sessionStorage.removeItem('withdrawAmount');
+            });
+        }
+    
+        // Handle withdrawal form submission
+        document.getElementById('PaymentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from submitting the traditional way
+            
+            // Get the withdrawal amount
+            const amount = document.getElementById('amount').value;
+    
+            // Store the withdrawal amount in sessionStorage
+            sessionStorage.setItem('withdrawAmount', amount);
+    
+            // Here you can add your logic to actually process the withdrawal (e.g., make an API call)
+    
+            // Redirect to index.html after the SweetAlert
+            window.location.href = "index.html"; // Redirect to index.html
+        });
+    </script>
+    
+</body>
+
+</html>
