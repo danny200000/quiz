@@ -1,59 +1,369 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz with Wallet</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
-</head>
-<body>
-    <video autoplay muted loop id="bg-video">
-        <source src="video/videoplayback.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="container">
-        <h1 class="heading">Quiz</h1>
-        <div id="initial-options" class="initial-options">
-            <button id="add-funds" data-modal-target="#modal">Add Funds</button>
-            <button id="play-for-free">Play for Free</button>
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS --> 
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <!-- Animate Min CSS -->
+        <link rel="stylesheet" href="animate.min.css">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="flaticon.css">
+        <!-- Boxicons CSS -->
+        <link rel="stylesheet" href="boxicons.min.css">
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="magnific-popup.css">
+        <!-- Owl Carousel Min CSS --> 
+        <link rel="stylesheet" href="owl.carousel.min.css">
+        <link rel="stylesheet" href="owl.theme.default.min.css">
+        <!-- Nice Select Min CSS --> 
+        <link rel="stylesheet" href="nice-select.min.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="meanmenu.css">
+        <!-- Jquery Ui CSS -->
+        <link rel="stylesheet" href="jquery-ui.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="responsive.css">
+        <!-- Theme Dark CSS -->
+        <link rel="stylesheet" href="theme-dark.css">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>asset venture</title>
+    </head>
+    <!-- {{-- withdraw button style --}} -->
+<style>
+    #withdraw-btn {
+        display: inline-block;
+        padding: 8px 16px; /* Reduced padding for a smaller button */
+        background-color: transparent;
+        color: rgb(0, 0, 0); /* Green text color by default */
+        border: 1px solid green; /* 1px solid green border */
+        border-radius: 12px; /* More rounded corners */
+        text-decoration: none; /* Remove underline */
+        font-size: 15px; /* Adjusted font size */
+        font-weight: bold; /* Bold text */
+        transition: background-color 0.4s ease, color 0.4s ease, border-radius 0.4s ease; /* Smooth transition for color and border-radius */
+    }
+
+    #withdraw-btn:hover {
+        background-color: green; /* Green background on hover */
+        color: white; /* White text color on hover */
+        border-radius: 20px; /* More rounded corners on hover */
+    }
+</style>
+    <body>
+
+        <!-- PreLoader Start -->
+        <div class="preloader">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="sk-cube-area">
+                        <div class="sk-cube1 sk-cube"></div>
+                        <div class="sk-cube2 sk-cube"></div>
+                        <div class="sk-cube4 sk-cube"></div>
+                        <div class="sk-cube3 sk-cube"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="department-options" class="department-options" style="display: none;">
-            <button data-department="English">English</button>
-            <button data-department="Mathematics">Mathematics</button>
-            <button data-department="Biology">Biology</button>
-            <button data-department="Chemistry">Chemistry</button>
-            <button data-department="Physics">Physics</button>
-            <button data-department="Computer">Computer Science</button>
-            <button data-department="Geography">Geography</button>
-            <button data-department="History">History</button>
+        <!-- PreLoader End -->
+
+        <!-- Top Header Start -->
+        <header class="top-header top-header-bg">
+      
+        </header>
+        <!-- Top Header End -->
+
+        <!-- Start Navbar Area -->
+        <div class="navbar-area">
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo">
+                    <!-- <img src="assets/img/logos/logo-3.png" class="logo-one" alt="Logo">
+                            <img src="assets/img/logos/footer-logo3.png" class="logo-two" alt="Logo"> -->
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav nav-three">
+                <div class="container">
+                    <nav class="navbar navbar-expand-md navbar-light ">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="assets/img/logos/logo-3.png" class="logo-one" alt="Logo">
+                            <img src="assets/img/logos/footer-logo3.png" class="logo-two" alt="Logo">
+                        </a>
+
+                        
+                    </nav>
+                </div>
+            </div>
         </div>
-        <div id="wallet" class="wallet" style="display: none;">
-            <p>Balance: <span id="wallet-balance">0</span></p>
+        <!-- End Navbar Area -->
+
+        <!-- Inner Banner -->
+        <div class="inner-banner inner-bg6">
+            <div class="container">
+                <div class="inner-title">
+                    <ul>
+                        <li>
+                            <a href="withdraw.html" class="animate__animated" id="withdraw-btn">WITHDRAW</a>
+                        </li>
+                        <li>
+                            <a href="#" class="animate__animated" id="topup-btn">TOPUP</a>
+                        </li>
+                        <li>
+                            <i class='bx bx-chevron-right'></i>
+                        </li>
+                        <li>Balance</li>
+                    </ul>
+                    <h3 id="balance-display">10,000</h3> <!-- Balance display -->
+                </div>
+            </div>
         </div>
-        <div id="question" class="question" style="display: none;"></div>
-        <div id="answers" class="answers" style="display: none;"></div>
-        <div id="score" class="score" style="display: none;"></div>
-        <div id="question-options" class="question-options" style="display: none;">
-            <button data-questions="10">10 Questions</button>
-            <button data-questions="20">20 Questions</button>
-            <button data-questions="30">30 Questions</button>
-            <button data-questions="40">40 Questions</button>
-            <button data-questions="50">50 Questions</button>
+        
+        
+        <!-- Inner Banner End -->
+
+        <!-- Service Details Area -->
+        <div class="service-details-area pt-100 pb-70">
+            <div class="container">
+                <div class="row">
+                     <div class="col-lg-3">
+                        <div class="service-side-bar">
+                            
+
+                            <div class="services-bar-widget">
+                                <h3 class="title">joy bassey</h3>
+                                <div class="side-bar-categories">
+        <img src="assets/img/blog/blog-profile1.jpg" class="rounded mx-auto d-block" alt="Image" style="width:100px; height:100px;"> <br><br>
+
+        <ul> 
+              
+            <li>
+                <a href="#">User Dashboard</a>
+            </li>
+            <li>
+                <a href="#">User Profile </a>
+            </li>
+            <li>
+                <a href="#">Change Password</a>
+            </li>
+            <li>
+                <a href="#">Booking Details </a>
+            </li>
+            <li>
+                <a href="#">Logout </a>
+            </li>
+        </ul>
+                                </div>
+                            </div>
+
+                           
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-9">
+                        <div class="service-article">
+                            
+
+                            <div class="service-article-title">
+                                <h2>User Dashboard </h2>
+                            </div>
+
+                            <div class="service-article-content">
+                            <div class="row">
+
+        <div class="col-md-4">
+<div class="card text-white bg-primary mb-3" style="max-width: 70rem;">
+  <div class="card-header">Total withdraw</div>
+  <div class="card-body">
+   <h1 class="card-title" style="font-size: 45px;">0 Total</h1>
+    
+  </div>
+</div>                   
+         </div>
+
+             <div class="col-md-4">
+<div class="card text-white bg-warning mb-3" style="max-width: 70rem;">
+  <div class="card-header">Pending withdraw </div>
+  <div class="card-body">
+    <h1 class="card-title id=pendingWithdrawAmount" style="font-size: 45px;">0 Pending</h1>
+    
+  </div>
+</div>                   
+         </div>
+
+
+     <div class="col-md-4">
+        <div class="card text-white bg-success mb-3" style="max-width: 70rem;">
+        <div class="card-header">Complete withdraw</div>
+        <div class="card-body">
+            <h1 class="card-title" style="font-size: 45px;">0 Complete</h1>
+            
         </div>
-        <button id="cancel-button" style="display: none;">Cancel</button>
+        </div>                   
+     </div>
+
+     <div class="col-md-4">
+        <div class="card text-white bg-success mb-3" id="complete-task-card" style="max-width: 70rem; cursor: pointer;">
+            <div class="card-header">Complete task</div>
+            <div class="card-body">
+                <h1 class="card-title" style="font-size: 40px;">task to earn</h1>
+            </div>
+        </div>                   
     </div>
 
-    <div class="modal" id="modal">
-        <div class="modal-header">
-            <div class="title">Update Notice</div>
-            <button data-close-button class="close-button">&times;</button>
+
+
+
+                                
+                            </div>    
+                               
+                            </div>
+ 
+                            
+                        </div>
+                    </div>
+
+                   
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-           updating it very soon.
-        </div>
-    </div>
-    <div id="overlay"></div>
-</body>
+        <!-- Service Details Area End -->
+
+       
+
+
+       <!-- Jquery Min JS -->
+        <script src="jquery.min.js"></script>
+        <!-- Bootstrap Bundle Min JS -->
+        <script src="bootstrap.bundle.min.js"></script>
+        <!-- Magnific Popup Min JS -->
+        <script src="jquery.magnific-popup.min.js"></script>
+        <!-- Owl Carousel Min JS -->
+        <script src="owl.carousel.min.js"></script>
+        <!-- Nice Select Min JS -->
+        <script src="jquery.nice-select.min.js"></script>
+        <!-- Wow Min JS -->
+        <script src="wow.min.js"></script>
+        <!-- Jquery Ui JS -->
+        <script src="jquery-ui.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="meanmenu.js"></script>
+        <!-- Ajaxchimp Min JS -->
+        <script src="jquery.ajaxchimp.min.js"></script>
+        <!-- Form Validator Min JS -->
+        <script src="form-validator.min.js"></script>
+        <!-- Contact Form JS -->
+        <script src="contact-form-script.js"></script>
+        <!-- Custom JS -->
+        <script src="custom.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+       
+        <script>
+            // Show the welcome alert when the page loads, but only if it hasn't been shown in this session
+            if (!sessionStorage.getItem('welcomeAlertShown')) {
+                // Trigger the SweetAlert2 when the page loads
+                Swal.fire({
+                    title: 'Welcome to our platform, Joy Bassey!',
+                    text: 'You just received 10,000 as your signing bonus.',
+                    background: '#2d2d2d', // Dark background color
+                    color: '#ffffff', // Text color for contrast
+                    icon: 'success',
+                    confirmButtonText: 'Awesome!'
+                }).then(() => {
+                    // Set a flag in sessionStorage to mark that the alert has been shown
+                    sessionStorage.setItem('welcomeAlertShown', 'true');
+                });
+        
+                // Add an event listener to capture user interaction (click anywhere on the page)
+                document.addEventListener('click', function() {
+                    // Set the sessionStorage flag to prevent showing the alert again
+                    sessionStorage.setItem('welcomeAlertShown', 'true');
+                });
+            }
+        </script>
+        
+        
+        <script>
+            // Function to show the withdrawal alert
+            function showWithdrawalAlert(withdrawAmount) {
+                Swal.fire({
+                    title: 'Withdrawal Successful',
+                    text: `You have successfully withdrawn ₦${withdrawAmount}. review will be made`,
+                    icon: 'success',
+                    background: '#2d2d2d',
+                    color: '#ffffff',
+                    confirmButtonText: 'OK',
+                    customClass: {
+                        confirmButton: 'btn btn-primary',
+                    }
+                }).then(() => {
+                    // Clear the session storage flag after the alert is closed
+                    sessionStorage.removeItem('withdrawalMade');
+                });
+            }
+        
+            // Check if the withdrawal has been made
+            const withdrawAmount = sessionStorage.getItem('withdrawAmount');
+        
+            if (withdrawAmount) {
+                // Call the function to show the alert if a withdrawal was made
+                showWithdrawalAlert(withdrawAmount);
+                
+                // Update the balance if necessary
+                const balanceDisplay = document.getElementById('balance-display');
+                let currentBalance = parseFloat(balanceDisplay.textContent.replace(/,/g, ''));
+                let newBalance = currentBalance - parseFloat(withdrawAmount);
+                balanceDisplay.textContent = newBalance.toLocaleString(); // Format balance
+        
+                // Store the updated balance in session storage
+                sessionStorage.setItem('currentBalance', newBalance.toString());
+        
+                // Clear withdrawal amount from session storage
+                sessionStorage.removeItem('withdrawAmount');
+            } else {
+                // If there's no withdrawal amount, check for the balance in session storage
+                const storedBalance = sessionStorage.getItem('currentBalance');
+                if (storedBalance) {
+                    const balanceDisplay = document.getElementById('balance-display');
+                    balanceDisplay.textContent = parseFloat(storedBalance).toLocaleString(); // Set stored balance
+                }
+            }
+        
+            // Function to process withdrawal and set session storage
+            function processWithdrawal(amount) {
+                // Store the withdrawal amount in sessionStorage
+                sessionStorage.setItem('withdrawAmount', amount);
+        
+                // Redirect or refresh the page after withdrawal
+                window.location.reload(); // Or redirect to another page
+            }
+        </script>
+
+        
+        <script>
+            document.getElementById('complete-task-card').addEventListener('click', function() {
+                Swal.fire({
+                    title: 'patient required',
+                    text: 'You will be notify play the task.',
+                    icon: 'warning',
+                    background: '#2d2d2d',
+                    color: '#ffffff',
+                    confirmButtonText: 'OK'
+                });
+            });
+        </script>
+        
+    </body>
 </html>
