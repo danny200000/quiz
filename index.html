@@ -11,43 +11,65 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #000; /* Black background */
             margin: 0;
+            color: #fff; /* White text */
         }
 
         .countdown-container {
             text-align: center;
-            background-color: #fff;
-            padding: 50px;
+            padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(255,255,255,0.1);
         }
 
         h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             margin-bottom: 20px;
         }
 
         .countdown {
             display: flex;
             justify-content: space-between;
-            font-size: 2em;
+            font-size: 1.5em;
         }
 
         .countdown div {
             margin: 0 10px;
+            text-align: center;
         }
 
         .time {
             background-color: #333;
             color: #fff;
-            padding: 10px 20px;
+            padding: 10px;
             border-radius: 5px;
+            width: 60px;
         }
 
         p {
             font-size: 1.2em;
-            color: #555;
+            color: #fff;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .countdown {
+                font-size: 1.2em;
+            }
+
+            .time {
+                width: 50px;
+                padding: 8px;
+            }
+
+            p {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
@@ -60,7 +82,7 @@
             <div><span id="minutes" class="time">00</span><br>Minutes</div>
             <div><span id="seconds" class="time">00</span><br>Seconds</div>
         </div>
-        <p>We are launching new update including hard to withdraw in 7 days! Stay tuned!</p>
+        <p>We are launching in 7 days! Stay tuned!</p>
     </div>
 
     <script>
