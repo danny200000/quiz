@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="zxx">
+    <head>
+        <!-- Required Meta Tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Bootstrap CSS --> 
+        <link rel="stylesheet" href="bootstrap.min.css">
+        <!-- Animate Min CSS -->
+        <link rel="stylesheet" href="animate.min.css">
+        <!-- Flaticon CSS -->
+        <link rel="stylesheet" href="flaticon.css">
+        <!-- Boxicons CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+        
+        <!-- Magnific Popup CSS -->
+        <link rel="stylesheet" href="magnific-popup.css">
+        <!-- Owl Carousel Min CSS --> 
+        <link rel="stylesheet" href="owl.carousel.min.css">
+        <link rel="stylesheet" href="owl.theme.default.min.css">
+        <!-- Nice Select Min CSS --> 
+        <link rel="stylesheet" href="nice-select.min.css">
+        <!-- Meanmenu CSS -->
+        <link rel="stylesheet" href="meanmenu.css">
+        <!-- Jquery Ui CSS -->
+        <link rel="stylesheet" href="jquery-ui.css">
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="style.css">
+        <!-- Responsive CSS -->
+        <link rel="stylesheet" href="responsive.css">
+        <!-- Theme Dark CSS -->
+        <link rel="stylesheet" href="theme-dark.css">
+
+        <!-- Favicon -->
+        <link rel="icon" type="image/png" href="favicon.png">
+
+        <title>Atoli - Hotel & Resorts HTML Template</title>
+        <!-- {{-- withdraw button style --}} -->
+        <style>
+            #withdraw-btn {
+                display: inline-block;
+                padding: 8px 16px; /* Reduced padding for a smaller button */
+                background-color: transparent;
+                color: rgb(0, 0, 0); /* Green text color by default */
+                border: 1px solid green; /* 1px solid green border */
+                border-radius: 12px; /* More rounded corners */
+                text-decoration: none; /* Remove underline */
+                font-size: 15px; /* Adjusted font size */
+                font-weight: bold; /* Bold text */
+                transition: background-color 0.4s ease, color 0.4s ease, border-radius 0.4s ease; /* Smooth transition for color and border-radius */
+            }
+            #topup-btn {
+                display: inline-block;
+                padding: 8px 16px; /* Reduced padding for a smaller button */
+                background-color: transparent;
+                color: rgb(0, 0, 0); /* Green text color by default */
+                border: 1px solid rgb(207, 54, 7); /* 1px solid green border */
+                border-radius: 12px; /* More rounded corners */
+                text-decoration: none; /* Remove underline */
+                font-size: 15px; /* Adjusted font size */
+                font-weight: bold; /* Bold text */
+                transition: background-color 0.4s ease, color 0.4s ease, border-radius 0.4s ease; /* Smooth transition for color and border-radius */
+            }
+        
+            #withdraw-btn:hover {
+                background-color: green; /* Green background on hover */
+                color: white; /* White text color on hover */
+                border-radius: 20px; /* More rounded corners on hover */
+            }
+
+            #topup-btn:hover {
+                background-color: rgb(133, 9, 0); /* Green background on hover */
+                color: white; /* White text color on hover */
+                border-radius: 20px; /* More rounded corners on hover */
+            }
+        </style>
+    </head>
+    <body>
+        
+        <!-- PreLoader Start -->
+        <div class="preloader">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="sk-cube-area">
+                        <div class="sk-cube1 sk-cube"></div>
+                        <div class="sk-cube2 sk-cube"></div>
+                        <div class="sk-cube4 sk-cube"></div>
+                        <div class="sk-cube3 sk-cube"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PreLoader End -->
+
+        <!-- Top Header Start -->
+        <header class="top-header top-header-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col text-center">
+                        <strong><a href="signin.html">Logout</a></strong>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Top Header End -->
+
+        <!-- Start Navbar Area -->
+        <div class="navbar-area">
+            <!-- Menu For Mobile Device -->
+            <div class="mobile-nav">
+                <a href="index.html" class="logo">
+                    <!-- <img src="assets/img/logos/logo-3.png" class="logo-one" alt="Logo">
+                    <img src="assets/img/logos/footer-logo3.png" class="logo-two" alt="Logo"> -->
+                </a>
+            </div>
+
+            <!-- Menu For Desktop Device -->
+            <div class="main-nav nav-three">
+                <div class="container">
+                    <nav class="navbar navbar-expand-md navbar-light ">
+                        <a class="navbar-brand" href="index.html">
+                            <!-- <img src="assets/img/logos/logo-3.png" class="logo-one" alt="Logo">
+                            <img src="assets/img/logos/footer-logo3.png" class="logo-two" alt="Logo"> -->
+                        </a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- End Navbar Area -->
+
+        <!-- Inner Banner -->
+        <div class="inner-banner inner-bg6">
+            <div class="container">
+                <div class="inner-title">
+                    <ul>
+                        <li>
+                            <a href="#" class="animate__animated" id="withdraw-btn">WITHDRAW</a>
+                        </li>
+                        <li>
+                            <a href="#" class="animate__animated" id="topup-btn">TOPUP</a>
+                        </li>
+                        <li>
+                            <i class='bx bx-chevron-right'></i>
+                        </li>
+                        <li>Balance</li>
+                    </ul>
+                    <h3 id="balance-display">0</h3> <!-- Balance display -->
+                </div>
+            </div>
+        </div>
+        
+              
+        
+        <!-- Inner Banner End -->
+
+        <!-- Service Details Area -->
+        <div class="service-details-area pt-100 pb-70">
+            <div class="container">
+                <div class="row">
+                     <div class="col-lg-3">
+                        <div class="service-side-bar">
+                            <div class="services-bar-widget">
+                                <h3 class="title">User Details</h3>
+                                <div class="side-bar-categories">
+                                    <img src="blog-profile1.jpg" class="rounded mx-auto d-block" alt="Image" style="width:100px; height:100px;"> <br><br>
+                                    <ul> 
+                                        <li><a href="#">User Dashboard</a></li>
+                                        <li><a href="#">User Profile </a></li>
+                                        <li><a href="#">Change Password</a></li>
+                                        <li><a href="#">Booking Details </a></li>
+                                        <li><a href="signin.html">Logout </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9">
+                        <div class="service-article">
+                            <div class="service-article-title">
+                                <h2>User Dashboard </h2>
+                            </div>
+                            <div class="service-article-content">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card text-white bg-primary mb-3" style="max-width: 30rem;">
+                                            <div class="card-header">Total withdraw</div>
+                                            <div class="card-body">
+                                                <h1 class="card-title" style="font-size: 45px;">0 Total</h1>
+                                            </div>
+                                        </div>                   
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card text-white bg-warning mb-3" style="max-width: 30rem;">
+                                            <div class="card-header">Pending withdraw </div>
+                                            <div class="card-body">
+                                                <h1 class="card-title" style="font-size: 45px;">0 Pending</h1>
+                                            </div>
+                                        </div>                   
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <div class="card text-white bg-success mb-3" style="max-width: 30rem; cursor: pointer;" id="invite-container">
+                                            <div class="card-header">Invite Link</div>
+                                            <div class="card-body">
+                                                <div id="invite-link-display">
+                                                    <h1 class="card-title" style="font-size: 25px;">Generating invite link...</h1>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-4">
+                                        <div class="card text-white bg-info mb-3 quiz-launcher" style="max-width: 30rem; cursor: pointer;" data-gas-fee-paid="{{ $user->gas_fee_paid }}">
+                                            <div class="card-header">
+                                                Game Activity
+                                                <i class='bx bxs-hand-down bx-tada' style="float: right;"></i>
+                                            </div>
+                                            <div class="card-body" style="text-align: center;">
+                                                <h1 class="card-title" style="font-size: 40px;">PLAY QUIZ</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service Details Area End -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+        <!-- SweetAlert Script -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.querySelector('.quiz-launcher').addEventListener('click', function() {
+                // Check if the gas fee has been paid
+                const gasFeePaid = this.getAttribute('data-gas-fee-paid') === 'true';
+        
+                if (gasFeePaid) {
+                    // If gas fee has been paid, redirect to quiz.html
+                    window.location.href = 'quiz.html';
+                } else {
+                    // If gas fee hasn't been paid, show SweetAlert for gas fee payment
+                    Swal.fire({
+                        title: 'Gas Fee Required',
+                        text: 'You need to pay 5000 as a gas fee to proceed with the quiz.',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        background: '#2d2d2d', // Dark background color
+                        color: '#ffffff', // Text color for contrast
+                        confirmButtonText: 'Pay 5000',
+                        cancelButtonText: 'Cancel',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // If user clicks "Pay 5000", show the second SweetAlert with explanation
+                            Swal.fire({
+                                icon: 'info',
+                                title: 'Why Pay the Gas Fee?',
+                                text: 'The gas fee is essential to cover transaction costs for processing your quiz participation. Without this fee, we cannot proceed.',
+                                background: '#2d2d2d', // Dark background for the second SweetAlert
+                                color: '#ffffff', // White text for contrast
+                                confirmButtonText: 'Proceed to Pay Gas Fee',
+                                customClass: {
+                                    confirmButton: 'btn btn-success'
+                                }
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // Trigger Paystack payment flow for 5000 gas fee
+                                    PayWithPaystack(5000, "assetventure@gmail.com"); // Set the email accordingly
+                                }
+                            });
+                        } else if (result.dismiss === Swal.DismissReason.cancel) { 
+                            // Action when the user cancels the first SweetAlert
+                            Swal.fire({
+                                title: 'Cancelled',
+                                text: 'You have cancelled the gas fee payment.',
+                                icon: 'error',
+                                background: '#2d2d2d', // Dark background color
+                                color: '#ffffff' // Text color for contrast
+                            });
+                        }
+                    });
+                }
+            });
+        
+            // Paystack payment function for gas fee
+            function PayWithPaystack(amount, email) {
+                let handler = PaystackPop.setup({
+                    key: 'pk_live_9f62762d480d75250eae5c19c43d96b20b25c92d', // Replace with your Paystack public key
+                    email: email,
+                    amount: amount * 100, // Convert to kobo (5000 NGN)
+                    currency: 'NGN',
+                    metadata: {
+                        transaction_type: 'gasfee' // Specify the type of transaction as 'gasfee'
+                    },
+                    ref: '' + Math.floor((Math.random() * 1000000000) + 1), // Generate a random reference
+        
+                    onClose: function() {
+                        Swal.fire({
+                            title: 'Transaction not completed',
+                            text: 'It seems the transaction was not completed.',
+                            icon: 'warning',
+                            confirmButtonText: 'Okay',
+                            background: '#2d2d2d', // Black background
+                            color: '#ffffff' // White text color
+                        });
+                    },
+        
+                    callback: function(response) {
+                        Swal.fire({
+                            title: 'Payment Successful!',
+                            text: 'Reference: ' + response.reference,
+                            icon: 'success',
+                            confirmButtonText: 'Okay',
+                            background: '#2d2d2d', // Black background
+                            color: '#ffffff' // White text color
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // Mark gas fee as paid in localStorage
+                                localStorage.setItem('gasFeePaid', 'true');
+                                
+                                // Set a temporary flag for successful payment
+                                localStorage.setItem('showGasFeeSuccessAlert', 'true');
+        
+                                // Redirect back to dashboard.html after payment
+                                window.location.href = 'dashboard.html';
+                            }
+                        });
+                    }
+                });
+        
+                handler.openIframe(); // Open the Paystack payment window
+            }
+        
+            // On document ready, check if we need to show the success message for gas fee payment
+            document.addEventListener('DOMContentLoaded', function() {
+                if (localStorage.getItem('showGasFeeSuccessAlert') === 'true') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Gas Fee Payment Successful!',
+                        text: 'Your gas fee is successful. You can now proceed with the quiz.',
+                        background: '#2d2d2d', // Dark background for the SweetAlert
+                        color: '#ffffff', // White text for contrast
+                        confirmButtonText: 'Okay'
+                    });
+        
+                    // Remove the flag after showing the alert to prevent it from showing again
+                    localStorage.removeItem('showGasFeeSuccessAlert');
+                }
+            });
+        </script>
+        <!-- IndexedDB Script for Dashboard -->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                // Initialize IndexedDB
+                let db;
+                const request = indexedDB.open('UserDatabase', 1);
+            
+                request.onsuccess = function(event) {
+                    db = event.target.result;
+                    console.log('Database opened successfully on the dashboard');
+            
+                    // Get the logged-in user's email
+                    const email = sessionStorage.getItem('loggedInUser');
+                    console.log('Logged in user email:', email);
+            
+                    if (email) {
+                        const transaction = db.transaction(['users'], 'readonly');
+                        const objectStore = transaction.objectStore('users');
+                        const getRequest = objectStore.get(email);
+            
+                        getRequest.onsuccess = function() {
+                            const userData = getRequest.result;
+                            console.log('Retrieved user data:', userData); // Debug line
+            
+                            if (userData) {
+                                const balance = userData.balance;
+                                document.getElementById('balance-display').textContent = balance;
+        
+                                // Retrieve and display the invite code
+                                const inviteCode = userData.inviteCode || 'Invite Code Not Available';  // Add fallback for debugging
+                                console.log("Invite Code Retrieved:", inviteCode);  // Debugging log
+        
+                                const inviteLink = `https://yourwebsite.com/invite?code=${inviteCode}`;
+                                document.getElementById('invite-link-display').innerHTML = `<h1 class="card-title" style="font-size: 25px;">${inviteLink}</h1>`;
+        
+                                // Click event for the invite container
+                                const inviteContainer = document.getElementById('invite-container');
+                                inviteContainer.addEventListener('click', () => {
+                                    // Show SweetAlert with invite link and copy button
+                                    Swal.fire({
+                                        title: 'Your Invite Link',
+                                        text: inviteLink,
+                                        showCancelButton: true,
+                                        background: '#2d2d2d', // Dark background color
+                                        color: '#ffffff', // Text color for contrast
+                                        confirmButtonText: 'Copy to Clipboard',
+                                        cancelButtonText: 'Close',
+                                        preConfirm: () => {
+                                            // Copy the invite link to clipboard
+                                            navigator.clipboard.writeText(inviteLink).then(() => {
+                                                Swal.fire('Copied!', 'Your invite link has been copied to the clipboard.', 'success');
+                                            }).catch(err => {
+                                                Swal.fire('Error!', 'Could not copy the link. Please try again.', 'error');
+                                            });
+                                        }
+                                    });
+                                });
+        
+                                // Show the bonus alert if the user just registered
+                                if (sessionStorage.getItem('showBonusAlert') === 'true') {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Welcome!',
+                                        text: 'You have been credited with 200,000.',
+                                    });
+        
+                                    sessionStorage.removeItem('showBonusAlert');
+                                }
+                            } else {
+                                console.error("User data not found in IndexedDB.");
+                            }
+                        };
+            
+                        getRequest.onerror = function(event) {
+                            console.error("Error retrieving user data:", event.target.errorCode);
+                        };
+                    } else {
+                        console.error("No logged-in user found.");
+                    }
+                };
+            
+                request.onerror = function(event) {
+                    console.error("Error opening database: ", event.target.errorCode);
+                };
+            });
+        </script>
+        
+       <!-- SweetAlert2 CDN -->
+
+
+<!-- SweetAlert2 CDN -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+    document.getElementById('withdraw-btn').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default action (if any)
+
+        // Check if the gas fee has already been paid
+        if (localStorage.getItem('gasFeePaid') === 'true') {
+            // If gas fee has been paid, redirect to withdraw.html
+            window.location.href = 'withdraw.html';
+        } else {
+            // If gas fee hasn't been paid, show SweetAlert for gas fee payment
+            Swal.fire({
+                title: 'Gas Fee Required',
+                text: 'You need to pay 5000 as a gas fee to proceed with the withdrawal.',
+                icon: 'warning',
+                showCancelButton: true,
+                background: '#2d2d2d', // Dark background color
+                color: '#ffffff', // Text color for contrast
+                confirmButtonText: 'Pay 5000',
+                cancelButtonText: 'Cancel',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // If user clicks "Pay 5000", show the second SweetAlert with explanation
+                    Swal.fire({
+                        icon: 'info',
+                        title: 'Why Pay the Gas Fee?',
+                        text: 'The gas fee is essential to cover transaction costs for processing your withdrawal. Without this fee, we cannot proceed with your withdrawal request.',
+                        background: '#2d2d2d', // Dark background for the second SweetAlert
+                        color: '#ffffff', // White text for contrast
+                        confirmButtonText: 'Proceed to Pay Gas Fee',
+                        customClass: {
+                            confirmButton: 'btn btn-success'
+                        }
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Trigger Paystack payment flow for 5000 gas fee
+                            PayWithPaystack(5000, "assetventure@gmail.com"); // Set the email accordingly
+                        }
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) { 
+    // Action when the user cancels the first SweetAlert
+    Swal.fire({
+        title: 'Cancelled',
+        text: 'Your withdrawal has been cancelled.',
+        icon: 'error',
+        customClass: {
+            popup: 'custom-popup' // Add a custom class for the popup
+        },
+        background: '#2d2d2d', // Dark background color
+        color: '#ffffff' // Text color for contrast
+    
+});
+
+                }
+            });
+        }
+    });
+
+    // Paystack payment function for gas fee
+    function PayWithPaystack(amount, email) {
+        let handler = PaystackPop.setup({
+            key: 'pk_live_9f62762d480d75250eae5c19c43d96b20b25c92d', // Replace with your Paystack public key
+            email: email,
+            amount: amount * 100, // Convert to kobo (5000 NGN)
+            currency: 'NGN',
+            metadata: {
+                transaction_type: 'gasfee' // Specify the type of transaction as 'gasfee'
+            },
+            ref: '' + Math.floor((Math.random() * 1000000000) + 1), // Generate a random reference
+
+            onClose: function() {
+                Swal.fire({
+                    title: 'Transaction not completed',
+                    text: 'It seems the transaction was not completed.',
+                    icon: 'warning',
+                    confirmButtonText: 'Okay',
+                    background: '#2d2d2d', // Black background
+                    color: '#ffffff' // White text color
+                });
+            },
+
+            callback: function(response) {
+                Swal.fire({
+                    title: 'Payment Successful!',
+                    text: 'Reference: ' + response.reference,
+                    icon: 'success',
+                    confirmButtonText: 'Okay',
+                    background: '#2d2d2d', // Black background
+                    color: '#ffffff' // White text color
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Mark gas fee as paid in localStorage
+                        localStorage.setItem('gasFeePaid', 'true');
+                        
+                        // Set a temporary flag for successful payment
+                        localStorage.setItem('showGasFeeSuccessAlert', 'true');
+
+                        // Redirect back to dashboard.html after payment
+                        window.location.href = 'dashboard.html';
+                    }
+                });
+            }
+        });
+
+        handler.openIframe(); // Open the Paystack payment window
+    }
+
+    // On document ready, check if we need to show the success message for gas fee payment
+    document.addEventListener('DOMContentLoaded', function() {
+        if (localStorage.getItem('showGasFeeSuccessAlert') === 'true') {
+            Swal.fire({
+                icon: 'success',
+                title: 'Gas Fee Payment Successful!',
+                text: 'Your gas fee is successful. You can now proceed with your withdrawal.',
+                background: '#2d2d2d', // Dark background for the SweetAlert
+                color: '#ffffff', // White text for contrast
+                confirmButtonText: 'Okay'
+            });
+
+            // Remove the flag after showing the alert to prevent it from showing again
+            localStorage.removeItem('showGasFeeSuccessAlert');
+        }
+    });
+</script>
+
+
+
+          
+            
+
+        <!-- All JS -->
+
+       <!-- Jquery Min JS -->
+        <script src="jquery.min.js"></script>
+        <!-- Bootstrap Bundle Min JS -->
+        <script src="bootstrap.bundle.min.js"></script>
+        <!-- Magnific Popup Min JS -->
+        <script src="jquery.magnific-popup.min.js"></script>
+        <!-- Owl Carousel Min JS -->
+        <script src="owl.carousel.min.js"></script>
+        <!-- Nice Select Min JS -->
+        <script src="jquery.nice-select.min.js"></script>
+        <!-- Wow Min JS -->
+        <script src="wow.min.js"></script>
+        <!-- Jquery Ui JS -->
+        <script src="jquery-ui.js"></script>
+        <!-- Meanmenu JS -->
+        <script src="meanmenu.js"></script>
+        <!-- Ajaxchimp Min JS -->
+        <script src="jquery.ajaxchimp.min.js"></script>
+        <!-- Form Validator Min JS -->
+        <script src="form-validator.min.js"></script>
+        <!-- Contact Form JS -->
+        <script src="contact-form-script.js"></script>
+        <!-- Custom JS -->
+        <script src="custom.js"></script>
+        
+    </body>
+</html>
